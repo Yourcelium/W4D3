@@ -1,0 +1,23 @@
+<form action="<%= action_url %>" method="post">
+  <input type="hidden" name="authentication_token" value="<%= form_authenticity_token %>">
+
+  <h3>Sign Up Dummy!</h3>
+  
+  <label>
+  USERNAME:
+  <input type="text" name="user[user_name]" value="">
+  </label>
+  <label>
+  PASSWORD:
+  <input type="password" name="user[password]" value="">
+  </label>
+  <br>
+  <% if flash.now[:errors] %>
+    <% flash.now[:errors].each do |error| %>
+      <%= "You did a bad thing; dummy! - #{error}" %>
+      <br>
+    <% end %>
+  <% end %>
+  <br>
+  <input type="submit" value="<%= message %>">
+</form>

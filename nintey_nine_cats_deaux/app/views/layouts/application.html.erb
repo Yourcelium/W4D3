@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <% if current_user  %>
+        <%= current_user.user_name %>
+        <%= button_to "GET THE HECK OUTTA; HEARE DUMMY!!!!", session_url, method: "delete"  %>
+      <% else %>
+        <%= button_to "GET THE HECK IN HERE; HEARE DUMMY!!!!", new_session_url, method: "get" %>
+      <% end %>
+    </header>
+    
+    <div class="content">
+      <div class="w">
+        <%= yield %>
+      </div>
+      
+      
+    </div>
+  </body>
+</html>
